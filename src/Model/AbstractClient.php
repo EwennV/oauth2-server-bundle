@@ -75,11 +75,13 @@ abstract class AbstractClient implements ClientInterface
         return $this->secret;
     }
 
-    /**
-     * @return list<RedirectUri>
-     *
-     * @psalm-mutation-free
-     */
+    public function setSecret(string $secret): ClientInterface
+    {
+        $this->secret = $secret;
+
+        return $this;
+    }
+
     public function getRedirectUris(): array
     {
         return $this->redirectUris;
